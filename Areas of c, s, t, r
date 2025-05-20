@@ -1,0 +1,142 @@
+
+#include <stdio.h>
+
+// Function to print a triangle
+void printTriangle(int rows) {
+    for (int i = 1; i <= rows; i++) {
+        for (int j = 1; j <= i; j++) {
+            printf("* ");
+        }
+        printf("\n");
+    }
+}
+
+// Function to print a circle (approximation)
+void printCircle(int radius) {
+    for (int i = -radius; i <= radius; i++) {
+        for (int j = -radius; j <= radius; j++) {
+            if (i * i + j * j <= radius * radius) {
+                printf("* ");
+            } else {
+                printf("  ");
+            }
+        }
+        printf("\n");
+    }
+}
+
+// Function to print a square
+void printSquare(int side) {
+    for (int i = 1; i <= side; i++) {
+        for (int j = 1; j <= side; j++) {
+            printf("* ");
+        }
+        printf("\n");
+    }
+}
+
+// Function to print a rectangle
+void printRectangle(int length, int width) {
+    for (int i = 1; i <= length; i++) {
+        for (int j = 1; j <= width; j++) {
+            printf("* ");
+        }
+        printf("\n");
+    }
+}
+
+// Function to calculate area of shapes
+void calculateArea() {
+    printf("Area of Triangle: 0.5 * base * height\n");
+    printf("Area of Circle: π * radius^2\n");
+    printf("Area of Square: side^2\n");
+    printf("Area of Rectangle: length * width\n");
+
+    int choice;
+    printf("Enter shape (1-Triangle, 2-Circle, 3-Square, 4-Rectangle): ");
+    scanf("%d", &choice);
+
+    switch (choice) {
+        case 1: {
+            int base, height;
+            printf("Enter base and height: ");
+            scanf("%d %d", &base, &height);
+            printf("Area of Triangle: %.2f\n", 0.5 * base * height);
+            break;
+        }
+        case 2: {
+            int radius;
+            printf("Enter radius: ");
+            scanf("%d", &radius);
+            printf("Area of Circle: %.2f\n", 3.14159 * radius * radius);
+            break;
+        }
+        case 3: {
+            int side;
+            printf("Enter side: ");
+            scanf("%d", &side);
+            printf("Area of Square: %d\n", side * side);
+            break;
+        }
+        case 4: {
+            int length, width;
+            printf("Enter length and width: ");
+            scanf("%d %d", &length, &width);
+            printf("Area of Rectangle: %d\n", length * width);
+            break;
+        }
+        default:
+            printf("Invalid choice\n");
+    }
+}
+
+int main() {
+    int choice;
+    printf("1. Print Triangle\n");
+    printf("2. Print Circle\n");
+    printf("3. Print Square\n");
+    printf("4. Print Rectangle\n");
+    printf("5. Calculate Area\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+
+    switch (choice) {
+        case 1: {
+            int rows;
+            printf("Enter number of rows: ");
+            scanf("%d", &rows);
+            printTriangle(rows);
+            break;
+        }
+        case 2: {
+            int radius;
+            printf("Enter radius: ");
+            scanf("%d", &radius);
+            printCircle(radius);
+            break;
+        }
+        case 3: {
+            int side;
+            printf("Enter side: ");
+            scanf("%d", &side);
+            printSquare(side);
+            break;
+        }
+        case 4: {
+            int length, width;
+            printf("Enter length and width: ");
+            scanf("%d %d", &length, &width);
+            printRectangle(length, width);
+            break;
+        }
+        case 5:
+            calculateArea();
+            break;
+        default:
+            printf("Invalid choice\n");
+    }
+
+    return 0;
+}
+
+
